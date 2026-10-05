@@ -1,0 +1,32 @@
+#include <iostream>
+
+int main() {
+    
+    int number;
+
+    std::cout << "Введите шестизначное число: ";
+    std::cin >> number;
+
+//проверка условия задания, что введено шестизначное число
+    if (number <= 100000 && number >= 999999) {
+        std::cout << "Ошибка: введено не шестизначное число." << std::endl;
+        return 1;
+    }
+
+    int original = number;  // сохраняем исходное число
+    int reversed = 0; //число, которое станет палиндромом
+//Составляем палиндром исходного числа
+    while (number > 0) {
+        int digit = number % 10;
+        reversed = reversed * 10 + digit;
+        number /= 10;
+    }
+//Проверка на палиндром
+    if (original == reversed) {
+        std::cout << "Число является палиндромом." << std::endl;
+    } else {
+        std::cout << "Число не является палиндромом." << std::endl;
+    }
+
+    return 0;
+}
